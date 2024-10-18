@@ -14,8 +14,8 @@ services:
 
   app-tpfoyer:
     depends_on:
-      - mysqldb
-    image: nadianb/tp-foyer-backend:5.0.0  # Utiliser l'image que vous allez builder
+      - mysqldb  # L'application dépend du service MySQL
+    image: nadianb/foyer:latest  # Utiliser l'image que vous allez builder
     restart: on-failure
     ports:
       - "8089:8089"  # Mapper le port 8089 de l'application
