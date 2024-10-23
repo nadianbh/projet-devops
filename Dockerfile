@@ -1,5 +1,5 @@
 # Utiliser une image de base JDK 17
-FROM openjdk:17-alpine
+FROM openjdk:17
 
 # Exposer le port 8082 pour accéder à l'application
 EXPOSE 8089
