@@ -1,16 +1,32 @@
-version: "2"
+version: '3.8'  # Utiliser une version appropriée de Docker Compose
+
 services:
-  backend:
-    depends_on:
-      - db
-    image: nadianb/foyer
-    ports:
-      - "8089:8089"
-  db:
-    image: mysql:8.0
-    container_name: mysql-db
+  mysqldb:
+    image: mysql:8.3.0
+    restart: unless-stopped
     environment:
-      MYSQL_DATABASE: db
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD:  # Définir le mot de passe root (remplacez par un mot de passe fort)
+      MYSQL_DATABASE: db  # Nom de la base de données
     ports:
-      - "3307:3306"
+      - "3306:3306"  # Mapper le port MySQL local vers le conteneur
+    volumes:
+      - db:/var/lib/mysql  # Stockage persistant pour les données MySQL
+
+  app-tpfoyer:
+    depends_on:
+      - mysqldb  # L'application dépend du service MySQL
+    image: nadianb/foyer:latest  # Utiliser l'image que vous allez builder
+    restart: on-failure
+    ports:
+      - "8089:8089"  # Mapper le port 8089 de l'application
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/db?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD:  # Remplacez par le mot de passe correspondant
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:  # Volume pour persister les données de la base de données
