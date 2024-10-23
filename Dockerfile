@@ -9,4 +9,4 @@ EXPOSE 8089
 ADD target/*.jar /tp-foyer-5.0.0.jar
 
 # Définir le point d'entrée pour exécuter l'application avec Java
-CMD ["java", "-jar", "/tp-foyer-5.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
