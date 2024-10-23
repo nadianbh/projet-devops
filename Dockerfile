@@ -1,5 +1,5 @@
 # Utiliser une image légère OpenJDK basée sur Alpine Linux
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17-jdk
 
 
 # Exposer le port sur lequel l'application Spring Boot sera disponible
