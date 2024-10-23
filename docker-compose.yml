@@ -20,11 +20,13 @@ services:
     ports:
       - "8089:8089"  # Mapper le port 8089 de l'application
     environment:
+
+      SPRING_APPLICATION_JSON: '{
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/db?createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: "root"
       SPRING_DATASOURCE_PASSWORD:  # Remplacez par le mot de passe correspondant
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_SHOW_SQL: "true"}'
     stdin_open: true
     tty: true
 
