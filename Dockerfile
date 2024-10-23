@@ -1,11 +1,11 @@
-# Utiliser une image légère OpenJDK basée sur Alpine Linux
-FROM openjdk:17-jdk-alpine
+# Utiliser une image de base JDK 17
+FROM eclipse-temurin:17-jdk-alpine
 
-# Exposer le port sur lequel l'application Spring Boot sera disponible
-EXPOSE 8089
+# Exposer le port 8082 pour accéder à l'application
+EXPOSE 8082
 
-# Copier votre fichier JAR généré dans le conteneur
-ADD target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
+# Ajouter le fichier JAR à l'image
+ADD target/tp-foyer-5.0.0.jar app.jar
 
-# Définir le point d'entrée pour exécuter l'application avec Java
-ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
+# Utiliser "entrypoint" pour démarrer l'application avec Spring Boot
+ENTRYPOINT ["java","-jar","/app.jar"]
