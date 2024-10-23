@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 EXPOSE 8089
 
 # Copier votre fichier JAR généré dans le conteneur
-CMD target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
+ADD target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
 
 # Définir le point d'entrée pour exécuter l'application avec Java
 ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
