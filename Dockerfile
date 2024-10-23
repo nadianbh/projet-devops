@@ -1,10 +1,11 @@
-# Utiliser OpenJDK 17 avec Alpine pour une image légère
-FROM openjdk:17-jdk-alpine
+# Utiliser une image légère OpenJDK basée sur Alpine Linux
+FROM openjdk:17-jdk
+
 
 # Exposer le port sur lequel l'application Spring Boot sera disponible
 EXPOSE 8089
 
-# Copier le fichier JAR généré dans le conteneur
+# Copier votre fichier JAR généré dans le conteneur
 ADD target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
 
 # Définir le point d'entrée pour exécuter l'application avec Java
