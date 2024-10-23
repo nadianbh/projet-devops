@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-alpine
 ENV PORT=8089
 
 # Exposer le port sur lequel l'application Spring Boot sera disponible
-EXPOSE $PORT
+EXPOSE 8089
 
 # Copier votre fichier JAR généré dans le conteneur
 COPY target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
