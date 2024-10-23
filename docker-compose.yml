@@ -5,7 +5,7 @@ services:
     image: mysql:8.3.0
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: my-secret-pw  # Définir le mot de passe root (remplacez par un mot de passe fort)
+      MYSQL_ROOT_PASSWORD:  # Définir le mot de passe root (remplacez par un mot de passe fort)
       MYSQL_DATABASE: db  # Nom de la base de données
     ports:
       - "3306:3306"  # Mapper le port MySQL local vers le conteneur
