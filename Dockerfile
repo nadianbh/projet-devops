@@ -1,11 +1,14 @@
 # Utiliser une image légère OpenJDK basée sur Alpine Linux
-FROM openjdk:8-jdk-alpine
+FROM openjdk:17-jdk-alpine
+
+# Définir une variable d'environnement pour le port
+ENV PORT=8089
 
 # Exposer le port sur lequel l'application Spring Boot sera disponible
-EXPOSE 8089
+EXPOSE $PORT
 
-# Ajouter votre fichier JAR généré dans le conteneur
-ADD target/tp-foyer-5.0.0.jar tp-foyer-5.0.0.jar
+# Copier votre fichier JAR généré dans le conteneur
+COPY target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
 
 # Définir le point d'entrée pour exécuter l'application avec Java
-ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
+ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "/tp-foyer-5.0.0.jar"]
