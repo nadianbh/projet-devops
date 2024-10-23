@@ -9,4 +9,4 @@ EXPOSE 8089
 ADD target/tp-foyer-5.0.0.jar /tp-foyer-5.0.0.jar
 
 # Définir le point d'entrée pour exécuter l'application avec Java
-ENTRYPOINT ["java", "-Dfile.encoding=UTF-8", "-jar", "/tp-foyer-5.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "/tp-foyer-5.0.0.jar"]
