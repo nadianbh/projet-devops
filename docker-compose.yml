@@ -14,7 +14,7 @@ services:
   app-tpfoyer:
     depends_on:
       - mysqldb
-    image: nadianb/tpfoyerr:latest
+    image: aziz653/tpfoyerr:latest
     restart: on-failure
     ports:
       - "8089:8089"
