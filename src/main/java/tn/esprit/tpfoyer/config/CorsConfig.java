@@ -14,7 +14,7 @@ public class CorsConfig implements WebMvcConfigurer {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Cela permet à toutes les URL de votre API d'accepter les requêtes cross-origin
-                        .allowedOrigins("http://localhost:4200") // Origine autorisée
+                        .allowedOrigins("http://192.168.50.4:4200") // Origine autorisée
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Méthodes autorisées
                         .allowedHeaders("*") // Tous les en-têtes sont autorisés
                         .allowCredentials(true); // Autoriser l'envoi des cookies (si nécessaire)
