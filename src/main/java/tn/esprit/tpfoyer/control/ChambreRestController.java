@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/chambre")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://192.168.50.4:4200")
 public class ChambreRestController {
 
     IChambreService chambreService;
